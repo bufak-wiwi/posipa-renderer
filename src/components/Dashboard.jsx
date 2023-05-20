@@ -32,11 +32,11 @@ class Dashboard extends Component {
         return data;
       });
     this.setState({ tags: tags });
-    console.log("Did mount called");
+
   }
 
   onTagsChange = (event, values) => {
-    console.log(values);
+
     let resetFilter = false;
     if (values.length === 0) {
       resetFilter = true;
@@ -45,7 +45,7 @@ class Dashboard extends Component {
     for (let i = 0; i < elems.length; i++) {
       const elemTags = elems[i].dataset.tags;
       const isCurrentlyVisible = !elems[i].classList.contains("hidden");
-      console.log(isCurrentlyVisible);
+
       if (!isCurrentlyVisible && resetFilter) {
         elems[i].classList.remove("hidden");
         continue;
@@ -57,7 +57,7 @@ class Dashboard extends Component {
         selectedValues.push(values[i].id);
       }
       const displayItem = checkIfTagMatch(elemTags, selectedValues);
-      console.log(displayItem);
+
       if (displayItem && !isCurrentlyVisible) {
         elems[i].classList.remove("hidden");
       } else if (!displayItem && isCurrentlyVisible) {
@@ -70,8 +70,7 @@ class Dashboard extends Component {
     const data = this.state.data;
     const tags = this.state.tags;
     const selectedTags = this.state.selectedTags;
-    console.log(this.state);
-    console.log(data);
+
     return (
       <>
         <div id="filter">
@@ -93,7 +92,7 @@ class Dashboard extends Component {
         </div>
         <div id="posipaWrapper">
           {data.map((posipa) => (
-            <Posipa data={posipa} />
+            <Posipa data={posipa} availableTags={tags} />
           ))}
         </div>
       </>
@@ -104,8 +103,6 @@ export default Dashboard;
 
 function checkIfTagMatch(itemTags, selectedTags) {
   const itemTagsArray = itemTags.split(",").map(Number);
-  console.log(itemTagsArray);
-  console.log(selectedTags);
   for (let i = 0; i < selectedTags.length; i++) {
     if (itemTagsArray.includes(selectedTags[i])) return true;
   }
