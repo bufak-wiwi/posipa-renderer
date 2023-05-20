@@ -19,6 +19,8 @@
     .posipa {
         margin-right: 2em;
         padding: 1em;
+        display: flex;
+        flex-direction: column;
     }
     
     .action {
@@ -56,6 +58,7 @@
   #posipas {
     #posipaWrapper {
         display: flex;
+        flex-wrap: wrap;
       .posipa {
         width: 50%;
       }
@@ -68,6 +71,7 @@
   #posipas {
     #posipaWrapper {
         display: flex;
+        flex-wrap: wrap;
       .posipa {
         width: 50%;
       }
@@ -80,6 +84,7 @@
   #posipas {
     #posipaWrapper {
         display: flex;
+        flex-wrap: wrap;
       .posipa {
         width: 30%;
       }
