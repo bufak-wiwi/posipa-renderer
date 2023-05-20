@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Posipa from "./Posipa";
-import { baseUrl, categoryId } from "../config/globals.template";
+import { baseUrl, categoryId } from "../config/globals";
 
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
