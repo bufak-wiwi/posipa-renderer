@@ -27,4 +27,14 @@ jobs:
         server: ${{ secrets.GITACTION_FTP_HOST }}
         username: ${{ secrets.GITACTION_FTP_USER }}
         password: ${{ secrets.GITACTION_FTP_PASSWORD }}
-        local-dir: ./build/
+        exclude: |
+          package-lock.json
+          package.json
+          webpack.config.js
+          README.md
+          .gitignore
+          **/src/**
+          **/.github/**
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
