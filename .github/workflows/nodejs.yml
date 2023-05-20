@@ -15,11 +15,14 @@ jobs:
     - uses: actions/setup-node@v2
       with:
         node-version: '20.2.0'
+        
+    - name: Create globals.tsx with secret baseUrl and categoryId
+      run: echo -e "export const baseUrl = \"${{ secrets.BASEURL }}\";\nexport const categoryId = \"${{ secrets.CATEGORYID }}\";" > src/config/globals.tsx
     
     - name: Build
       run: |
         npm install
-        npm run build        
+        npm run build    
         
     - name: copy files via ftp
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
