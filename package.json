@@ -1,0 +1,24 @@
+{
+  "name": "posipa-renderer",
+  "version": "1.0.0",
+  "description": "A WordPress plugin to render posipa on the website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "wp-scripts build",
+    "start": "wp-scripts start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bufak-wiwi/posipa-renderer.git"
+  },
+  "author": "BuFaK WiWi (Moritz Bunse & Leonard Heimann)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bufak-wiwi/posipa-renderer/issues"
+  },
+  "homepage": "https://github.com/bufak-wiwi/posipa-renderer#readme",
+  "devDependencies": {
+    "@wordpress/scripts": "^26.4.0"
+  }
+}
