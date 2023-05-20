@@ -15,7 +15,7 @@ class Dashboard extends Component {
 
   async componentDidMount() {
     const data = await fetch(
-      `${baseUrl}/wp-json/wp/v2/posts?categories=${categoryId}&_fields=id,title,link,excerpt.rendered,acf.posipa_pdf,tags,acf.last_confirmed`
+      `${baseUrl}/wp-json/wp/v2/posts?categories=${categoryId}&_fields=id,title,link,excerpt.rendered,acf.posipa_pdf,tags,acf.last_confirmed&orderby=title&order=asc`
     )
       .then(function (response) {
         return response.json();
