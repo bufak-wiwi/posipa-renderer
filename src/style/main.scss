@@ -1,14 +1,87 @@
 #posipas {
+  #filter {
+    margin-bottom: 3em;
+  }
   #posipaWrapper {
+    display: block;
+    width: 100%;
     .hidden {
       display: none !important;
     }
+    .title {
+        font-weight: 900;
+    }
+    .lastConfirmed{
+        font-weight: 200;
+        font-size: 0.9em;
+    }
+    
     .posipa {
-      .title {
+        margin-right: 2em;
+        padding: 1em;
+    }
+    
+    .action {
+        float: right;
+    }
+  }
+}
+
+// X-Small devices (portrait phones, less than 576px)
+@media (min-width: 575.98px) {
+  #posipas {
+    #posipaWrapper {
+        display: block;
+      .posipa {
+        width: 100%;
       }
-      .teaser {
+    }
+  }
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (min-width: 767.98px) {
+  #posipas {
+    #posipaWrapper {
+        display: block;
+      .posipa {
+        width: 100%;
       }
-      .action {
+    }
+  }
+}
+
+// Medium devices (tablets, less than 992px)
+@media (min-width: 991.98px) {
+  #posipas {
+    #posipaWrapper {
+        display: flex;
+      .posipa {
+        width: 50%;
+      }
+    }
+  }
+}
+
+// Large devices (desktops, less than 1200px)
+@media (min-width: 1199.98px) {
+  #posipas {
+    #posipaWrapper {
+        display: flex;
+      .posipa {
+        width: 50%;
+      }
+    }
+  }
+}
+
+// X-Large devices (large desktops, less than 1400px)
+@media (min-width: 1399.98px) {
+  #posipas {
+    #posipaWrapper {
+        display: flex;
+      .posipa {
+        width: 30%;
       }
     }
   }
