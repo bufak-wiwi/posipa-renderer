@@ -20,4 +20,6 @@ function posipas_shortcodes_init() {
 }
 
 add_action('init', 'posipas_shortcodes_init');
+
+
 ?>

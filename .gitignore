@@ -131,3 +131,4 @@ dist
 
 # build folder
 build*
+src/config/globals.jsx
