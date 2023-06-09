@@ -12,10 +12,6 @@ class Posipa extends Component {
         <div className="title">{title}</div>
         <div className="tags">{tagsStrings}</div>
         <div className="lastConfirmed">{lastConfirmed}</div>
-        <div
-          className="teaser"
-          dangerouslySetInnerHTML={{ __html: teaser }}
-        ></div>
         <div className="action">
           <a href={actionUrl} target="_blank">
             Zum Positionspapier
