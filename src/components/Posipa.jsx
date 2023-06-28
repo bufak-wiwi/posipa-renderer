@@ -9,14 +9,12 @@ class Posipa extends Component {
     const tagsStrings = "#"+getTagString(tags,this.props.availableTags);
     return (
       <div className="posipa" data-tags={tags}>
-        <div className="title">{title}</div>
-        <div className="tags">{tagsStrings}</div>
-        <div className="lastConfirmed">{lastConfirmed}</div>
-        <div className="action">
-          <a href={actionUrl} target="_blank">
-            Zum Positionspapier
+        <div className="title">
+          <a href={actionUrl} target="_blank">{title}
           </a>
         </div>
+        <div className="tags">{tagsStrings}</div>
+        <div className="lastConfirmed">{lastConfirmed}</div>
       </div>
     );
   }
