@@ -1,10 +1,24 @@
 import React, { Component } from "react";
+import moment from "moment";
+
 class Posipa extends Component {
   render() {
     const title = this.props.data.title.rendered;
     const teaser = this.props.data.excerpt.rendered;
     const actionUrl = this.props.data.acf.posipa_pdf;
-    const lastConfirmed = this.props.data.acf.last_confirmed;
+    var lastConfirmed;
+    if(this.props.data.acf.last_confirmed_date !== undefined){
+      // Input date string
+      const inputDateStr = this.props.data.acf.last_confirmed_date;
+
+      // Parse the input date string
+      const [day, month, year] = inputDateStr.split('/');
+      const parsedDate = new Date(`${year}-${month}-${day}`);
+
+      // Format the date as "November 2023"
+     lastConfirmed = parsedDate.toLocaleString('de-DE', { year: 'numeric', month: 'long' });
+  
+    }
     const tags = this.props.data.tags;
     const tagsStrings = "#"+getTagString(tags,this.props.availableTags);
     return (
@@ -14,7 +28,7 @@ class Posipa extends Component {
           </a>
         </div>
         <div className="tags">{tagsStrings}</div>
-        <div className="lastConfirmed">{lastConfirmed}</div>
+        <div className="lastConfirmed" data-date={this.props.data.acf.last_confirmed_date}>{lastConfirmed}</div>
       </div>
     );
   }

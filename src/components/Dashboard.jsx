@@ -4,18 +4,21 @@ import { baseUrl, categoryId } from "../config/globals";
 
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
+import  Button  from '@mui/base/Button';
 class Dashboard extends Component {
   constructor() {
     super();
     this.state = {
       data: [],
       tags: [],
+      sortOptions: ["Alphabetisch","Neuste zuerst","Älteste zuerst"],
+      currentSorting:0
     };
   }
 
   async componentDidMount() {
     const data = await fetch(
-      `${baseUrl}/wp-json/wp/v2/posts?categories=${categoryId}&_fields=id,title,link,excerpt.rendered,acf.posipa_pdf,tags,acf.last_confirmed&orderby=title&order=asc&per_page=100`
+      `${baseUrl}/wp-json/wp/v2/posts?categories=${categoryId}&_fields=id,title,link,excerpt.rendered,acf.posipa_pdf,tags,acf.last_confirmed_date&orderby=title&order=asc&per_page=100`
     )
       .then(function (response) {
         return response.json();
@@ -66,6 +69,25 @@ class Dashboard extends Component {
     }
   };
 
+  async changeSort(){
+    let data = this.state.data;
+    const newSort = this.state.currentSorting === this.state.sortOptions.length-1 ? 0 : this.state.currentSorting+1;
+    this.setState({data:data.sort(this.customSort), currentSorting:newSort})
+  }
+
+   customSort  = (a, b) => {
+      const newSort = this.state.currentSorting === this.state.sortOptions.length-1 ? 0 : this.state.currentSorting+1;
+      if (a.acf.last_confirmed_date !== b.acf.last_confirmed_date && newSort !== 0) {
+          if (newSort === 1){
+            return new Date(b.acf.last_confirmed_date) - new Date (a.acf.last_confirmed_date);
+          } else {
+            return new Date(a.acf.last_confirmed_date) - new Date (b.acf.last_confirmed_date);
+          }
+      } else {
+          return a.title.rendered.localeCompare(b.title.rendered); // Sort by name if dates are equal
+      }
+  };
+
   render() {
     const data = this.state.data;
     const tags = this.state.tags;
@@ -89,6 +111,7 @@ class Dashboard extends Component {
               />
             )}
           />
+          <Button className="filterBtn" onClick={()=>this.changeSort()} data-sort={this.state.currentSorting}>Sortierung: {this.state.sortOptions[this.state.currentSorting]}</Button>
         </div>
         <div id="posipaWrapper">
           {data.map((posipa) => (
