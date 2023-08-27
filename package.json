@@ -22,9 +22,10 @@
     "@wordpress/scripts": "^26.4.0"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.0",
+    "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@mui/material": "^5.13.1",
+    "@mui/icons-material": "^5.14.6",
+    "@mui/material": "^5.14.6",
     "node-nightly": "^1.8.1"
   }
 }
