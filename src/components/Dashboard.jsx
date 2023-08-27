@@ -11,7 +11,7 @@ class Dashboard extends Component {
     this.state = {
       data: [],
       tags: [],
-      sortOptions: ["Alphabetisch","Neuste zuerst","Älteste zuerst"],
+      sortOptions: ["Alphabetisch","Neueste zuerst","Älteste zuerst"],
       currentSorting:0
     };
   }
