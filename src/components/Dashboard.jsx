@@ -97,6 +97,7 @@ class Dashboard extends Component {
       <>
         <div id="filter">
           <Autocomplete
+            sx={{ width: 400 }}
             multiple
             id="tags-standard"
             options={tags}
@@ -108,6 +109,7 @@ class Dashboard extends Component {
                 variant="standard"
                 label=""
                 placeholder="Themen"
+                fullWidth
               />
             )}
           />
